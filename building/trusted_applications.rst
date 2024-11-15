@@ -312,7 +312,7 @@ parameter.
   (TA), potentially leading to partial control over the TEE in the worst-case
   scenario. For more information, please refer to the GlobalConfusion_ paper,
   which provides detailed insights into this issue.
-
+  
 For example, if a TA expects that command ID 0 comes with ``params[0]`` being a
 input value, ``params[1]`` being a output value, and ``params[2]`` being a
 in/out memory reference (buffer), then the TA should implemented the following
@@ -347,6 +347,14 @@ sequence:
         }
     }
 
+.. warning::
+  As stated in the Global API documentation (v3.1.12, section 4.11.1), memory 
+  references (``TEE_PARAM_TYPE_MEMREF_*``) underlying buffers are not locked 
+  for TEE exclusive access and can therefore be modified by a non-secure client 
+  during command processing. It is the reponsability of the TA (or PTA) to ensure 
+  data immutability during command execution, if such a property is needed. 
+  For example, a TA (or PTA) could copy all input data into a locally allocated buffer
+  and only access this copy.
 
 Identifying TA's client
 ***********************
