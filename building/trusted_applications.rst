@@ -348,7 +348,7 @@ sequence:
     }
 
 .. warning::
-  As stated in the Global API documentation (v3.1.1, section 4.11.1), memory 
+  As stated in the Global API documentation (v1.3.1, section 4.11.1), memory 
   references (``TEE_PARAM_TYPE_MEMREF_*``) underlying buffers are not locked 
   for TEE exclusive access and can therefore be modified by a non-secure client 
   during command processing. It is the reponsability of the TA (or PTA) to ensure 
