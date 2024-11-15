@@ -312,7 +312,7 @@ parameter.
   (TA), potentially leading to partial control over the TEE in the worst-case
   scenario. For more information, please refer to the GlobalConfusion_ paper,
   which provides detailed insights into this issue.
-  
+
 For example, if a TA expects that command ID 0 comes with ``params[0]`` being a
 input value, ``params[1]`` being a output value, and ``params[2]`` being a
 in/out memory reference (buffer), then the TA should implemented the following
